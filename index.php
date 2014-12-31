@@ -2,16 +2,7 @@
     require_once __DIR__ . "/lib/SEHelper.php";
     if ( isset($_GET["userid"]) ) {
         $user_id = $_GET["userid"];
-        // $user = SEHelper::getUserById($user_id);
-        $user = array (
-            "reputation" => 9001,
-            "user_id" => 1,
-            "user_type" => "registered",
-            "accept_rate" => 55,
-            "profile_image" => "https://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG",
-            "display_name" => "Amy Codes",
-            "link" => "http =>//example.stackexchange.com/users/1/example-user"
-        );
+        $user = SEHelper::getUserById($user_id);
         $headline = "Unanswered Questions for " . $user["display_name"];
     } else if ( isset($_GET["username"]) ) {
         $username = $_GET["username"];

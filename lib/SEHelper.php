@@ -52,7 +52,7 @@ class SEHelper {
     
     public static function getTagsByUserId($userId) {
         // echo "SEHelper::getTagsByUserId($userId);\n";
-        $endpoint = implode("/", array("users", $userId, "tags"));
+        $endpoint = implode("/", array("users", $userId, "top-tags"));
         $response = SEHelper::stackExchangeGetRequest($endpoint);
         $response_arr = $response["items"];
         $tags = [];
