@@ -39,6 +39,7 @@
             .user img {
                 border: thin solid gray;
                 margin-bottom: 10px;
+                width:82px;
             }
             
             .user span {
