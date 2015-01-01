@@ -8,7 +8,7 @@ class SEHelper {
     
     public static $se_baseurl = "http://api.stackexchange.com/2.2/";
     
-    public static function stackExchangeGetRequest($endpoint, $params = []) {
+    public static function stackExchangeGetRequest($endpoint, $params = array()) {
         $url = SEHelper::$se_baseurl . $endpoint . "?site=stackoverflow";
         if ( $params != NULL && is_array($params) && count($params) > 0 ) {
             foreach ( $params as $key => $value ) {
@@ -55,7 +55,7 @@ class SEHelper {
         $endpoint = implode("/", array("users", $userId, "top-tags"));
         $response = SEHelper::stackExchangeGetRequest($endpoint);
         $response_arr = $response["items"];
-        $tags = [];
+        $tags = array();
         foreach( $response_arr as $tag_info ) {
             $tags[] = $tag_info["name"];
         }
@@ -72,7 +72,7 @@ class SEHelper {
     
     public static function getQuestionsByTags($tags) {
         // echo "SEHelper::getQuestionsByTags([" . implode(",", $tags) . "]);\n";
-        $questions = [];
+        $questions = array();
         foreach ( $tags as $tag ) {
             $tagged_questions = SEHelper::getQuestionsByTag($tag);
             foreach ( $tagged_questions as $question ) {
